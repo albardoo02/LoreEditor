@@ -37,7 +37,7 @@ public record ComponentImpl(MutableComponent handle) implements Component {
     }
 
     public static MutableComponent deserializeFromJson(@NotNull String input) {
-        return ComponentSerialization.CODEC.decode(JsonOps.INSTANCE, GSON.fromJson(input, JsonObject.class)).getOrThrow().getFirst().copy();
+        return ComponentSerialization.CODEC.decode(JsonOps.INSTANCE, GSON.fromJson(input, com.google.gson.JsonElement.class)).getOrThrow().getFirst().copy();
     }
 
     public static String serializeToJson(@NotNull net.minecraft.network.chat.Component component) {
